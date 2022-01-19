@@ -1,0 +1,11 @@
+in the current directory->
+1-npm init <-
+2-npm install express
+    or
+    npm install validator
+3-const validator= require('validator');
+
+globally ->
+npm install nodemon -g
+{make sure to delete
+(delete _nodeman.ps1)(C:\Users\omm\AppData\Roaming\npm)}
