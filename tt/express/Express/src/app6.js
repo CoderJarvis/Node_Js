@@ -2,7 +2,7 @@ var express = require('express')
 var app = express()
 
 // for serving dynamic webpage
-app.set('views','../templates');
+app.set('views','../templates/views');
 app.set("view engine","hbs");
 
 app.get("/",(req,res)=>{

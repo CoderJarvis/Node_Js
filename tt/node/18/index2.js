@@ -8,11 +8,11 @@ let OBJdata={
 }
 let JSONdata=JSON.stringify(OBJdata);
 
-fs.writeFile('index18a.json',JSONdata,(err)=>{
+fs.writeFile('myJson.json',JSONdata,(err)=>{
     console.log("file created");  
 })
 
-fs.readFile('index18a.json','utf-8',(err,newJSONdata)=>{
+fs.readFile('myJson.json','utf-8',(err,newJSONdata)=>{
     console.log(newJSONdata);   //json
     let newOBJdata=JSON.parse(newJSONdata);
     console.log(newOBJdata);    //object
