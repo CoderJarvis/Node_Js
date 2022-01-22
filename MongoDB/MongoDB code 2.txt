@@ -1,0 +1,166 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+jarvis  0.000GB
+local   0.000GB
+test    0.000GB
+> use jarvis
+switched to db jarvis
+> show collections
+employees
+students
+> db.students.find().pretty();
+{
+        "_id" : ObjectId("61ec198a335b3d594dcc1c93"),
+        "name" : "saswat",
+        "clg" : "trident"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c94"),
+        "name" : "raja",
+        "clg" : "vn"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c95"),
+        "name" : "nihar",
+        "clg" : "igit"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c96"),
+        "name" : "dipuni",
+        "clg" : "nc"
+}
+> db.students.find({clg:"igit"}).pretty();
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c95"),
+        "name" : "nihar",
+        "clg" : "igit"
+}
+> db.students.find({clg:"igit"},{_id:0,name:1}).pretty();
+{ "name" : "nihar" }
+>  db
+jarvis
+> show databases
+admin   0.000GB
+config  0.000GB
+jarvis  0.000GB
+local   0.000GB
+test    0.000GB
+> shoe collections
+uncaught exception: SyntaxError: unexpected token: identifier :
+@(shell):1:5
+> show collections
+employees
+students
+> db.students.find().pretty();
+{
+        "_id" : ObjectId("61ec198a335b3d594dcc1c93"),
+        "name" : "saswat",
+        "clg" : "trident"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c94"),
+        "name" : "raja",
+        "clg" : "vn"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c95"),
+        "name" : "nihar",
+        "clg" : "igit"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c96"),
+        "name" : "dipuni",
+        "clg" : "nc"
+}
+> db.students.updateOne({name:"nihar"},{$set:{clg:"allahbad nit"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.students.find().pretty();
+{
+        "_id" : ObjectId("61ec198a335b3d594dcc1c93"),
+        "name" : "saswat",
+        "clg" : "trident"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c94"),
+        "name" : "raja",
+        "clg" : "vn"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c95"),
+        "name" : "nihar",
+        "clg" : "allahbad nit"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c96"),
+        "name" : "dipuni",
+        "clg" : "nc"
+}
+> db.students.insertOne({name:"malaya",clg:"un"});
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61ec3aa7e3877770839974ad")
+}
+> db.students.insertOne({name:"amlan",clg:"un"});
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61ec3af3e3877770839974ae")
+}
+> db.students.find().pretty();
+{
+        "_id" : ObjectId("61ec198a335b3d594dcc1c93"),
+        "name" : "saswat",
+        "clg" : "trident"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c94"),
+        "name" : "raja",
+        "clg" : "vn"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c95"),
+        "name" : "nihar",
+        "clg" : "allahbad nit"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c96"),
+        "name" : "dipuni",
+        "clg" : "nc"
+}
+{
+        "_id" : ObjectId("61ec3aa7e3877770839974ad"),
+        "name" : "malaya",
+        "clg" : "un"
+}
+{
+        "_id" : ObjectId("61ec3af3e3877770839974ae"),
+        "name" : "amlan",
+        "clg" : "un"
+}
+> db.students.deleteMany({clg:"un"});
+{ "acknowledged" : true, "deletedCount" : 2 }
+> db.students.find().pretty();
+{
+        "_id" : ObjectId("61ec198a335b3d594dcc1c93"),
+        "name" : "saswat",
+        "clg" : "trident"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c94"),
+        "name" : "raja",
+        "clg" : "vn"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c95"),
+        "name" : "nihar",
+        "clg" : "allahbad nit"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c96"),
+        "name" : "dipuni",
+        "clg" : "nc"
+}
+> db.students.deleteMany({});^C
+bye
+
+C:\Users\DELL>

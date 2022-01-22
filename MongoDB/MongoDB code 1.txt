@@ -1,0 +1,248 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> db
+test
+> db.createCollection("students")
+{ "ok" : 1 }
+> db
+test
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+test    0.000GB
+> use students
+switched to db students
+> db.students.insertOne({name:"saswat",age=23,clg="trident"})
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:40
+> db.students.insertOne({name:"saswat",age:23,clg:"trident"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61ec1685335b3d594dcc1c91")
+}
+> db
+students
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+students  0.000GB
+test      0.000GB
+> use students
+switched to db students
+> db.students.find()
+{ "_id" : ObjectId("61ec1685335b3d594dcc1c91"), "name" : "saswat", "age" : 23, "clg" : "trident" }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("61ec1685335b3d594dcc1c91"),
+        "name" : "saswat",
+        "age" : 23,
+        "clg" : "trident"
+}
+> show collections
+students
+> db.createCollection("employees");
+{ "ok" : 1 }
+> show collections
+employees
+students
+> db
+students
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+students  0.000GB
+test      0.000GB
+> use employees
+switched to db employees
+> db.dropDatabase();
+{ "ok" : 1 }
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+students  0.000GB
+test      0.000GB
+> use employees
+switched to db employees
+> db.employees.insertOne({name:"saswat",deg:"software developer"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61ec17a5335b3d594dcc1c92")
+}
+> show dbs
+admin      0.000GB
+config     0.000GB
+employees  0.000GB
+local      0.000GB
+students   0.000GB
+test       0.000GB
+> use employees
+switched to db employees
+> db.employees.find().pretty()
+{
+        "_id" : ObjectId("61ec17a5335b3d594dcc1c92"),
+        "name" : "saswat",
+        "deg" : "software developer"
+}
+> db
+employees
+> db.dropDatabase();
+{ "ok" : 1 }
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+students  0.000GB
+test      0.000GB
+> use students
+switched to db students
+> db.find().pretty();
+uncaught exception: TypeError: db.find is not a function :
+@(shell):1:1
+> db.students.find().pretty();
+{
+        "_id" : ObjectId("61ec1685335b3d594dcc1c91"),
+        "name" : "saswat",
+        "age" : 23,
+        "clg" : "trident"
+}
+> db
+students
+> show collections
+employees
+students
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+students  0.000GB
+test      0.000GB
+> use students
+switched to db students
+> dd.dropDatabase();
+uncaught exception: ReferenceError: dd is not defined :
+@(shell):1:1
+> db.dropDatabase();
+{ "ok" : 1 }
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+test    0.000GB
+> use jarvis
+switched to db jarvis
+> db.createCollection("students");
+{ "ok" : 1 }
+> db.createCollection("employees");
+{ "ok" : 1 }
+> db.createCollection("orders");
+{ "ok" : 1 }
+> db
+jarvis
+> show collections
+employees
+orders
+students
+> db.students.insertOne({name:"saswat",clg:"trident"});
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61ec198a335b3d594dcc1c93")
+}
+> db.students.insertMany([{name:"raja",clg:"vn"},{name:"nihar",clg:"igit"},{name:"dipuni",clg:"nc"}]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("61ec19f3335b3d594dcc1c94"),
+                ObjectId("61ec19f3335b3d594dcc1c95"),
+                ObjectId("61ec19f3335b3d594dcc1c96")
+        ]
+}
+> db.students.find();
+{ "_id" : ObjectId("61ec198a335b3d594dcc1c93"), "name" : "saswat", "clg" : "trident" }
+{ "_id" : ObjectId("61ec19f3335b3d594dcc1c94"), "name" : "raja", "clg" : "vn" }
+{ "_id" : ObjectId("61ec19f3335b3d594dcc1c95"), "name" : "nihar", "clg" : "igit" }
+{ "_id" : ObjectId("61ec19f3335b3d594dcc1c96"), "name" : "dipuni", "clg" : "nc" }
+> db.students.find().pretty();
+{
+        "_id" : ObjectId("61ec198a335b3d594dcc1c93"),
+        "name" : "saswat",
+        "clg" : "trident"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c94"),
+        "name" : "raja",
+        "clg" : "vn"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c95"),
+        "name" : "nihar",
+        "clg" : "igit"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c96"),
+        "name" : "dipuni",
+        "clg" : "nc"
+}
+> db
+jarvis
+> show collections
+employees
+orders
+students
+> db.employees.insertMany([{_id:1,name:"saswat",deg:"software developer"},{_id:2,name:"samay",deg:"tech lead"},{_id:3,name:"nihar",deg:"data scientist"},{_id:4,name:"vidit",deg:"manager"}]);
+{ "acknowledged" : true, "insertedIds" : [ 1, 2, 3, 4 ] }
+> db.employees.find().pretty()
+{ "_id" : 1, "name" : "saswat", "deg" : "software developer" }
+{ "_id" : 2, "name" : "samay", "deg" : "tech lead" }
+{ "_id" : 3, "name" : "nihar", "deg" : "data scientist" }
+{ "_id" : 4, "name" : "vidit", "deg" : "manager" }
+> db.employess.find()
+> db.employees.find()
+{ "_id" : 1, "name" : "saswat", "deg" : "software developer" }
+{ "_id" : 2, "name" : "samay", "deg" : "tech lead" }
+{ "_id" : 3, "name" : "nihar", "deg" : "data scientist" }
+{ "_id" : 4, "name" : "vidit", "deg" : "manager" }
+> db.employees.find().pretty();
+{ "_id" : 1, "name" : "saswat", "deg" : "software developer" }
+{ "_id" : 2, "name" : "samay", "deg" : "tech lead" }
+{ "_id" : 3, "name" : "nihar", "deg" : "data scientist" }
+{ "_id" : 4, "name" : "vidit", "deg" : "manager" }
+> db.students.find().pretty();
+{
+        "_id" : ObjectId("61ec198a335b3d594dcc1c93"),
+        "name" : "saswat",
+        "clg" : "trident"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c94"),
+        "name" : "raja",
+        "clg" : "vn"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c95"),
+        "name" : "nihar",
+        "clg" : "igit"
+}
+{
+        "_id" : ObjectId("61ec19f3335b3d594dcc1c96"),
+        "name" : "dipuni",
+        "clg" : "nc"
+}
+> show collections
+employees
+orders
+students
+> db.orders.drop();
+true
+> show collections
+employees
+students
+> ^C
+bye
+
+C:\Users\DELL>
