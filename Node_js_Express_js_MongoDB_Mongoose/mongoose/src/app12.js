@@ -24,12 +24,12 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User',userSchema);
 
 // inserting document into collection (old method)
-const doc1 = new User({
-    username : "saswatkumarpanda",
-    password : "saswat123",
-    email : "saswat@gmail.com",
-    phone : "8337826734"
-})
+// const doc1 = new User({
+//     username : "saswatkumarpanda",
+//     password : "saswat123",
+//     email : "saswat@gmail.com",
+//     phone : "8337826734"
+// })
 // doc1.save();
 
 // inserting document into collection (modern method)

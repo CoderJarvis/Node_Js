@@ -27,6 +27,7 @@ app.get("/contact",(req,res)=>{
     res.render('contact.hbs');
 })
 app.get('*',(req,res)=>{
+    res.status(404);
     res.render('404.hbs',{
         errMsg:"404 page not found"
     })
