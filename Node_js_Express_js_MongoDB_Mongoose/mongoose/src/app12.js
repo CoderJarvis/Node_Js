@@ -35,7 +35,7 @@ const User = mongoose.model('User',userSchema);
 // inserting document into collection (modern method)
 const insertDocument = async ()=>{
     const doc2 = new User({
-        username:"samayraina",
+        username:"samay3",
         password : "samay123",
         email : "samaya@gmail.com",
         phone : "737637737"

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saswat fitness</title>
+    <style>
+
+        body{
+            color: white;
+            margin: 0px;
+            padding: 0px;
+            background: url("./img/fit6.jpg" );
+            background-repeat: no-repeat;
+            background-size: cover;
+           
+        }
+
+        .left {
+    /* border: 2px solid red; */
+    display: inline-block;
+    position: absolute;
+    left: 40px;
+    top: 23px;
+    height: 106px;
+    width: 145px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(255 235 0);
+    font-size: 23px;
+}
+.mid {
+    /* border: 2px solid green; */
+    display: block;
+    
+    width: 67%;
+
+    margin: 20px 180px;
+   
+    height: 45px;
+}
+        .right {
+    /* border: 2px solid rgb(33, 9, 243); */
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    margin: -54px 23px;
+    font-size: 22px;
+    padding: 2px 31px;
+}
+.btn {
+    margin: 1PX 9PX;
+    PADDING: 3PX 15PX;
+    color: red;
+}
+.btn:hover
+{
+   background-color: violet;
+   cursor: pointer;
+   color: yellow;
+}
+
+img {
+    height: 75px;
+    width: 114px;
+}
+
+li{
+    display: inline;
+    margin: 0px 8px;
+    
+}
+li a{
+    font-size: 25px;
+    color: rgb(7, 248, 7);
+    text-decoration: none;
+}
+li a:hover{
+    font-size: 30px;
+    color: rgb(248, 7, 7);
+    text-decoration: underline;
+}
+ul{
+    box-sizing: border-box;
+    width: 570px;
+}
+.form {
+    /* border: 2px solid red; */
+    position: absolute;
+    width: 274px;
+    height: 305px;
+    top: 300px;
+    left: 334px;
+    font-size: 13px;
+    /* top: 178px; */
+    margin: 0px 20px;
+    padding: 12px 27px;
+    color: rgb(33, 237, 252)
+}
+h3{
+    text-align: center;
+    color: rgb(252, 0, 42);
+}
+input{
+    margin: 15px 37px;
+    color: red;
+    /* background-color: tomato; */
+   
+}
+label{
+    font-size: 15px;
+    text-align: center;
+    color: blue;
+    margin: 0px 52px;
+}
+.subm {
+    margin: 9px 94px;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left">
+            <img src="./img/fitlogo.jpg" alt="">
+            Saswat Fitness
+
+        </div>
+        <div class="mid">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Instruments</a></li>
+                <li><a href="#">fees-Structure</a></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+
+        </div>
+        <div class="right">
+            
+<button class="btn">Call us</button>
+<button class="btn">Email Us</button>
+
+
+        </div>
+
+    </header>
+
+    <div class="form">
+
+        <h3 style="font-size: 30px;">Apply For Admission</h3>
+        <br>
+
+        <input type="text" placeholder="Enter your name">
+        <input type="number" placeholder="Enter your Age">
+        <input type="number" placeholder="Enter your phone number">
+        <input type="number" placeholder="Enter your adhar number"><br>
+        <!-- Select Your Gender : Male<input type="radio" name="myGender" > Female<input type="radio" name="myGender"> -->
+        <br><label for="sub">Submit your application
+            <input type="submit" class="subm">
+        </label>
+
+
+    </div>
+</body>
+</html>
